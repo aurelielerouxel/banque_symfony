@@ -5,6 +5,9 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\SignUpType;
+use App\Entity\User;
+
 
 class BankController extends AbstractController
 {
@@ -34,8 +37,10 @@ class BankController extends AbstractController
      */
     public function signUp(): Response
     {
+        $signUp = new User();
+        $form = $this->createForm(SignUpType::class, $signUp);
         return $this->render('bank/sign_up.html.twig', [
-            'controller_name' => 'BankController',
+            'form' => $form->createView(),
         ]);
     }
 

@@ -11,18 +11,18 @@
 
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link active" href="#">Acceuil</a>
+            <a class="nav-link active" href="{{ path("index") }}">Acceuil</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"></a>
+            <a class="nav-link" href="#">Créer un compte</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"></a>
+            <a class="nav-link" href="#">Déconnexion</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"></a>
-        </li>
+
     </ul>
+
+    {% block main %}{% endblock %}
 
     <footer class="jumbotron jumbotron-fluid">
     <div class="container">

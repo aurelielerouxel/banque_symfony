@@ -3,6 +3,33 @@
 {% block title %}Accueil - Banque{% endblock %}
 
 {% block main %}
-<h1>Accueil Inscription/connexion</h1>
+    <div class="container">
+    <h1 class="m-3 text-center">Accueil Inscription/connexion</h1>
 
+        <div class="row m-5 d-flex justify-content-between">
+            <div class="card col-md-5 p-0">
+                <div class="card-body bg-primary text-white m-0">
+                    <h5 class="card-title text-center">Vous connecter</h5>
+                </div>
+                <div>
+                    <p class="card-text p-3">Si vous possédez déjà un compte chez nous, cliquez ici. Vous aurez accès à vos comptes et à la gestion de ceux-ci</p>
+                </div>
+                <div class="card-body text-center">
+                    <a href="#" class="card-link">Connexion</a>
+                </div>
+            </div>
+
+            <div class="card col-md-5 p-0">
+                <div class="card-body bg-primary text-white m-0">
+                    <h5 class="card-title text-center">S'inscrire</h5>
+                </div>
+                <div>
+                    <p class="card-text p-3">Vous n'avez pas encore de compte dans notre banque, cliquez ici et découvrez toutes les options qui s'offrent à vous.</p>
+                </div>
+                <div class="card-body text-center">
+                    <a href="signUp" class="card-link">Inscription</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

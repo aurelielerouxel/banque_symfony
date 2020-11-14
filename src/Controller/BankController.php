@@ -7,7 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\SignUpType;
 use App\Entity\User;
-
+use App\Entity\Account;
+use App\Entity\Operation;
 
 class BankController extends AbstractController
 {
@@ -49,8 +50,10 @@ class BankController extends AbstractController
      */
     public function accounts(): Response
     {
+        $accountRepository = $this->getDoctrine()->getRepository(Account::class);
+        $accounts = $accountRepository->findAll();
         return $this->render('bank/accounts.html.twig', [
-            'controller_name' => 'BankController',
+            'accounts' => $accounts,
         ]);
     }
 

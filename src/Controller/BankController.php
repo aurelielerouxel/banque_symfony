@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\SignUpType;
+use App\Form\SignInType;
 use App\Entity\User;
 use App\Entity\Account;
 use App\Entity\Operation;
@@ -28,8 +29,10 @@ class BankController extends AbstractController
      */
     public function signIn(): Response
     {
+        $signIn = new User();
+        $form = $this->createForm(SignInType::class, $signIn);
         return $this->render('bank/sign_in.html.twig', [
-            'controller_name' => 'BankController',
+            'form' => $form->createView(),
         ]);
     }
 
@@ -63,6 +66,16 @@ class BankController extends AbstractController
     public function singleAccount(): Response
     {
         return $this->render('bank/single_account.html.twig', [
+            'controller_name' => 'BankController',
+        ]);
+    }
+
+    /**
+     * @Route("/addBankAccount", name="add_bank_account")
+     */
+    public function addBankAccount(): Response
+    {
+        return $this->render('bank/add_bank_account.html.twig', [
             'controller_name' => 'BankController',
         ]);
     }

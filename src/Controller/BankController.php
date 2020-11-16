@@ -10,9 +10,24 @@ use App\Form\SignInType;
 use App\Entity\User;
 use App\Entity\Account;
 use App\Entity\Operation;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
+/**
+ * Require ROLE_USER for *every* controller method in this class.
+ *
+ * @IsGranted("ROLE_USER")
+ */
+
 
 class BankController extends AbstractController
 {
+    
+    public function adminDashboard()
+    {
+    $this->denyAccessUnlessGranted('ROLE_USER');
+    
+    }
+    
     /**
      * @Route("/", name="index")
      * @Route("/bank", name="bank")
@@ -64,4 +79,5 @@ class BankController extends AbstractController
             'controller_name' => 'BankController',
         ]);
     }
+
 }

@@ -65,10 +65,32 @@ class BankController extends AbstractController
      */
     public function singleAccount(): Response
     {
+        // $accountRepository = $this->getDoctrine()->getRepository(Account::class);
+        // $singleAccount = $accountRepository->findAll();
+        // dump($singleAccount);
+        // return $this->render('bank/single_account.html.twig', [
+        //     'singleAccount' => $singleAccount,
+        // ]);
+        $operationRepository = $this->getDoctrine()->getRepository(Operation::class);
+        $operations = $operationRepository->findAll();
+        dump($operations);
         return $this->render('bank/single_account.html.twig', [
-            'controller_name' => 'BankController',
+            'operations' => $operations,
         ]);
     }
+
+    // /**
+    //  * @Route("/operation/{id}", name="operation", requirements={"id"="\d+"})
+    //  */
+    // public function operation(int $id): Response
+    // {
+    //     $operationRepository = $this->getDoctrine()->getRepository(Operation::class);
+    //     $operations = $operationRepository->findBy(['account_id' => $id]);
+    //     dump($operations);
+    //     return $this->render('bank/operation.html.twig', [
+    //         'operations' => $operations,
+    //     ]);
+    // }
 
     /**
      * @Route("/addBankAccount", name="add_bank_account")

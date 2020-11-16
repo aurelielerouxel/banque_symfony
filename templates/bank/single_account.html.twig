@@ -4,7 +4,7 @@
 
 {% block main %}
 <div class="container">
-    <h1 class="m-5">Page de du compte séléctionné</h1>
+    <h1 class="m-5 text-center">Page de du compte séléctionné</h1>
     <div class="row">
         <div class="col-12 col-sm-10 col-md-6 col-lg-4 mb-5">
             <div class="card text-center">
@@ -34,15 +34,17 @@
                     <th scope="col">Date</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                </tr>
-            </tbody>
+            {% for operation in operations %}
+                <tbody>
+                    <tr>
+                    <td>type de compte</td>
+                    <td>{{operation.operationType}}</td>
+                    <td>{{operation.operationLabel}}</td>
+                    <td>{{operation.operationAmount}}</td>
+                    <td>{{operation.operationDate|date("m/d/Y H:i:s")}}</td>
+                    </tr>
+                </tbody>
+            {% endfor %}
         </table>
         </div>
     </div>

@@ -35,6 +35,7 @@ class AppFixtures extends Fixture
         $operation->setOperationType('debit');
         $operation->setOperationAmount('100');
         $operation->setOperationDate(new \DateTime());
+        $operation->setAccount($account);
         $manager->persist($operation);
 
         $manager->flush();

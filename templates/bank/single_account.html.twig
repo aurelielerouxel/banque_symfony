@@ -6,24 +6,25 @@
 <div class="container">
     <h1 class="m-5 text-center">Voir les dernières opérations sur votre compte.</h1>
     {% for singleAccount in singleAccount %}
-    <div class="row">
-        <div class="col-12 col-sm-10 col-md-6 col-lg-4 mb-5">
-            <div class="card text-center">
-                <section class="card-body">
-                    <h5 class="card-title">Type de compte : {{singleAccount.accountType}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Numéro de compte : {{singleAccount.accountNumber}}</h6>
-                    <hr>
-                    {# <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Nom & Prénom</li>
-                    </ul> #}
-                    <a href="#" class="btn btn-primary">Dépot/Retrait</a>
-                    <a href="#" class="btn btn-primary">Virement</a>
-                    <a href="#" class="btn btn-primary">Cloturer</a>
-                    <a href="accounts">Retourner consulter vos comptes</a>
-                </section>
-            </div> 
-        </div>
+        <div class="row">
+            <div class="col-12 col-sm-10 col-md-6 col-lg-4 mb-5">
+                <div class="card text-center">
+                    <section class="card-body">
+                        <h5 class="card-title">Type de compte : {{singleAccount.accountType}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Numéro de compte : {{singleAccount.accountNumber}}</h6>
+                        <hr>
+                        {# <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Nom & Prénom</li>
+                        </ul> #}
+                        <a href="#" class="btn btn-primary">Dépot/Retrait</a>
+                        <a href="#" class="btn btn-primary">Virement</a>
+                        <a href="#" class="btn btn-primary">Cloturer</a>
+                        <a href="accounts">Retourner consulter vos comptes</a>
+                    </section>
+                </div> 
+            </div>
         {% endfor %}
+
         <div class="col-12 col-sm-10 col-md-6 col-lg-8">
         <table class="table">
             <thead class="bg-primary">

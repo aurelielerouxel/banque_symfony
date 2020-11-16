@@ -25,30 +25,6 @@ class BankController extends AbstractController
     }
 
     /**
-     * @Route("/signIn", name="sign_in")
-     */
-    public function signIn(): Response
-    {
-        $signIn = new User();
-        $form = $this->createForm(SignInType::class, $signIn);
-        return $this->render('bank/sign_in.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/signUp", name="sign_up")
-     */
-    public function signUp(): Response
-    {
-        $signUp = new User();
-        $form = $this->createForm(SignUpType::class, $signUp);
-        return $this->render('bank/sign_up.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/accounts", name="accounts")
      */
     public function accounts(): Response
@@ -78,19 +54,6 @@ class BankController extends AbstractController
             'operations' => $operations,
         ]);
     }
-
-    // /**
-    //  * @Route("/operation/{id}", name="operation", requirements={"id"="\d+"})
-    //  */
-    // public function operation(int $id): Response
-    // {
-    //     $operationRepository = $this->getDoctrine()->getRepository(Operation::class);
-    //     $operations = $operationRepository->findBy(['account_id' => $id]);
-    //     dump($operations);
-    //     return $this->render('bank/operation.html.twig', [
-    //         'operations' => $operations,
-    //     ]);
-    // }
 
     /**
      * @Route("/addBankAccount", name="add_bank_account")

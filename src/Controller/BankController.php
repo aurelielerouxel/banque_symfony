@@ -41,16 +41,16 @@ class BankController extends AbstractController
      */
     public function singleAccount(): Response
     {
-        // $accountRepository = $this->getDoctrine()->getRepository(Account::class);
-        // $singleAccount = $accountRepository->findAll();
-        // dump($singleAccount);
-        // return $this->render('bank/single_account.html.twig', [
-        //     'singleAccount' => $singleAccount,
-        // ]);
+        $accountRepository = $this->getDoctrine()->getRepository(Account::class);
+        $singleAccount = $accountRepository->findAll();
+        dump($singleAccount);
+
         $operationRepository = $this->getDoctrine()->getRepository(Operation::class);
         $operations = $operationRepository->findAll();
         dump($operations);
+
         return $this->render('bank/single_account.html.twig', [
+            'singleAccount' =>$singleAccount,
             'operations' => $operations,
         ]);
     }

@@ -39,6 +39,7 @@ class AppFixtures extends Fixture
         $account->setAccountNumber('lol101lol');
         $account->setOpeningDate(new \DateTime('02/20/2020'));
         $account->setAccountAmount('1500');
+        $account->setUser($user);
         $manager->persist($account);
 
         $operation = new Operation();

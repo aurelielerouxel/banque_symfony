@@ -44,6 +44,12 @@ class Account
      */
     private $operations;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="accounts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function __construct()
     {
         $this->operations = new ArrayCollection();
@@ -128,6 +134,18 @@ class Account
                 $operation->setAccount(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

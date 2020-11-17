@@ -5,8 +5,6 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Form\SignUpType;
-use App\Form\SignInType;
 use App\Entity\User;
 use App\Entity\Account;
 use App\Entity\Operation;

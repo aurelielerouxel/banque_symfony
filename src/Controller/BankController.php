@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 use App\Entity\User;
 use App\Entity\Account;
 use App\Entity\Operation;
@@ -34,8 +36,17 @@ class BankController extends AbstractController
      */
     public function accounts(): Response
     {
+        $user = $this->getUser();
         $accountRepository = $this->getDoctrine()->getRepository(Account::class);
-        $accounts = $accountRepository->findAll();
+        $accounts = $accountRepository->findBy([
+            'user' => $user
+        ]);
+        dump($accounts);
+        // if (!$accounts) {
+        //     throw $this->createNotFoundException(
+        //         'Vous ne possédez pas encore de compte, cliquez ici pour en créer un (mettre un lien). '
+        //     );
+        // }
         return $this->render('bank/accounts.html.twig', [
             'accounts' => $accounts,
         ]);

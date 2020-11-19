@@ -10,9 +10,13 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 use App\Entity\User;
 use App\Entity\Account;
 use App\Entity\Operation;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 class BankController extends AbstractController
 {
+
+    
     /**
      * @Route("/", name="index")
      * @Route("/bank", name="bank")
@@ -25,6 +29,9 @@ class BankController extends AbstractController
     }
 
     /**
+     * Require ROLE_USER for only this controller method.
+     * @IsGranted("ROLE_USER")
+     * 
      * @Route("/accounts", name="accounts")
      */
     public function accounts(): Response
@@ -46,6 +53,9 @@ class BankController extends AbstractController
     }
 
     /**
+     * Require ROLE_USER for only this controller method.
+     * @IsGranted("ROLE_USER")
+     * 
      * @Route("/singleAccount", name="single_account")
      */
     public function singleAccount(): Response
@@ -65,6 +75,9 @@ class BankController extends AbstractController
     }
 
     /**
+     * Require ROLE_USER for only this controller method.
+     * @IsGranted("ROLE_USER")
+     * 
      * @Route("/addBankAccount", name="add_bank_account")
      */
     public function addBankAccount(): Response
@@ -73,4 +86,5 @@ class BankController extends AbstractController
             'controller_name' => 'BankController',
         ]);
     }
+
 }

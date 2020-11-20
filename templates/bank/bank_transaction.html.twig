@@ -1,0 +1,34 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Transaction bancaire{% endblock %}
+
+{% block main %}
+<div>
+    <h1>Page pour effectuer un dépôt ou un retrait</h1>
+</div>
+
+{% for message in app.flashes('success') %}
+    <div class="flash-notice alert alert-success" role="alert">
+        {{ message }}
+    </div>
+{% endfor %}
+
+{{ form_start(form) }}
+{{ form_row(form.account, {
+        label: 'Séléctionnez un compte'
+    }) }}
+{{ form_row(form.operation_type, {
+        label: 'Type d\'opération'
+    }) }}
+{{ form_row(form.operation_amount, {
+        label: 'Montant (en euro)'
+    }) }}
+{{ form_row(form.operation_label, {
+        label: 'Libellé'
+    }) }}
+<button type="submit" class="btn btn-lg btn-primary mb-3">Envoyer</button>
+
+{{ form_end(form) }}
+
+
+{% endblock %}

@@ -120,9 +120,6 @@ class BankController extends AbstractController
               return $this->redirectToRoute('bank_transaction');
             }
 
-
-
-
         }
 
         return $this->render('bank/bank_transaction.html.twig', [

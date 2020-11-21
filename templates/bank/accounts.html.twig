@@ -13,6 +13,13 @@
                         <section class="card-body">
                             <h5 class="card-title">Type de compte : {{account.accountType}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Numéro de compte : {{account.accountNumber}}</h6>
+                            <h6 class="card-subtitle mb-2">Montant du compte :
+                            {% if account.AccountAmount > 0 %}
+                                <span class="text-success"> + {{account.AccountAmount}} €</span>
+                            {% else %}
+                                <span class="text-danger"> - {{account.AccountAmount}} €</span>
+                            {% endif %}
+                            </h6>
                             <hr>
                             {# <ul class="list-group list-group-flush">
                                 <li class="list-group-item">Nom & Prénom</li>
